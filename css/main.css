@@ -166,10 +166,15 @@ img.name-tt {
     text-align: center;
 }
 h1.title-404 {
-    font-size: 35px;
+    font-size: 30px;
 }
 b.b-404 {
-    font-size: 25px;
+    font-size: 20px;
     color: #008064;
     text-align: center;
+}
+.all-404{
+    text-align: center;
+    padding: 45px;
+
 }

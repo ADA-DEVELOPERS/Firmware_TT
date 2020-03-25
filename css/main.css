@@ -159,4 +159,17 @@ button.btn.btn-warning {
 }
 img {
     margin: 0px 0 10px 0;
+    text-align: center;
+}
+img.name-tt {
+    width: 450px;
+    text-align: center;
+}
+h1.title-404 {
+    font-size: 35px;
+}
+b.b-404 {
+    font-size: 25px;
+    color: #008064;
+    text-align: center;
 }

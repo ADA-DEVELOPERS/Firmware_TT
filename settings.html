@@ -2,38 +2,43 @@
 File Name: Firmware_TT
 Plugin URI: http://shipilovfamily.com/ada-team
 Description: Файл создан для того чтоб модефецировать прошивку под Датчик давления.
-Author: Shipilov Anaioliy
+Author: Shipilov Anaioliy and Timkov Daniil
 Author URI: http://shipilovfamily.com/
 Version: 2.0.1  -->
 
 <!DOCTYPE html>
 <html lang="ru-RU">
   <head>
-    <link rel="stylesheet" href="css/main.css">
-
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" >
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-grid.css" >
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" >
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-reboot.css" >
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/settings.js"></script>
+	<script type="text/javascript" src="js/ipInput.js"></script>
+	<script type="text/javascript" src="js/validator.min.js"></script>
+	
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/ipInput.css">
 
   </head>
   <body>
+
     <div class="container">
       <h1>Настройки <b class="b-tt">"Датчика"</b></h1>
       <hr class="hr-tt">
         <div class="row">
           <div class="col-md-3">
-            <button type="button" class="btn btn-info"><label for="popupCheckboxOne" class="popup-shower">Настроить MQTT</label> </button>
+			  <label  for="popupCheckboxOne" class="popup-shower btn btn-info">Настроить MQTT</label>
           </div>
           <div class="col-md-3">
-            <button type="button" class="btn btn-info"><label for="popupCheckboxOne2" class="popup-shower">Настроить сеть</label> </button>
+			<label for="popupCheckboxOne2" class="popup-shower btn btn-info">Настроить сеть</label>
           </div>
           <div class="col-md-3">
-            <button type="button" class="btn btn-info"><label for="popupCheckboxOne3" class="popup-shower">Настройка прошивки</label> </button>
+			<label for="popupCheckboxOne3" class="popup-shower btn btn-info">Настройка прошивки</label>
           </div>
           <div class="col-md-3">
-            <button type="button" class="btn btn-info"><label for="popupCheckboxOne4" class="popup-shower">Конфигурация</label> </button>
+			<label for="popupCheckboxOne4" class="popup-shower btn btn-info">Конфигурация</label>
           </div>
+		  
         </div>
 <!-- ____________________________________Настроить MQTT______________________________________ -->
     <div class="popup-wrapper">
@@ -42,49 +47,53 @@ Version: 2.0.1  -->
         <div class="popup-content">
           <h5 class="title-tt">Настроить MQTT</h5>
           <BR>
-          <div class="row">
-            <div class="col-md-3">
-              IP Адрес сервера
-            </div>
-            <div class="col-md-9">
-              <p><input type="text" pattern="[0-9]{1,3}\.\[0-9]{1,3}\.\[0-9]{3}" placeholder="192.168.1.100"></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3">
-              Порт сервера
-            </div>
-            <div class="col-md-9">
-              <p><input type="port" pattern="[0-9]{4}" placeholder="2525"></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3">
-              Пользователь
-            </div>
-            <div class="col-md-9">
-              <p><input type="user" pattern="^[a-zA-Z]+$" placeholder="Server-User"></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3">
-              Пароль
-            </div>
-            <div class="col-md-9">
-              <p><input type="password" pattern="^[a-zA-Z]+$" placeholder="Пароль"></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <button type="button" class="btn btn-info">Сохранить</button>
-            </div>
-            <div class="col-md-6">
-              <button type="button" class="btn btn-info"><label for="popupCheckboxOne" class="popup-closer">Закрыть</label></button>
-            </div>
-          </div>
+			<div class="container">
+			
+				<!-- фОРМА MQTT-->
+				<form class="form-horizontal" id="formMqtt">
+				
+					<div class="form-group">
+						<label class="control-label col-sm-2" >Сервер</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" data-validation="server">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" >Порт</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" data-validation="port">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" >Пользователь</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" data-validation="strENnull">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" >Пароль</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" data-validation="strENnull">
+						</div>
+					</div>
+					<div class="col-sm-10">
+						<label class="btn btn-primary mb-0" for="popupCheckboxOne">Закрыть</label>
+						<input type="submit" class="btn btn-danger" value="Сохранить">
+						
+					</div>
+				</form>
+				
+				
+			</div>
         </div>
       </div>
-    </div
+    </div>
+	
+	
+
 <!-- ____________________________________Настроить сеть______________________________________ -->
         <div class="popup-wrapper">
           <input type="checkbox" class="popup-checkbox" id="popupCheckboxOne2">
@@ -93,110 +102,104 @@ Version: 2.0.1  -->
               <h5 class="title-tt">Настроить сеть</h5>
               <BR>
                 <h5 class="title-tt">Соединение к wifi:</h5>
-              <div class="row">
-                <div class="col-md-3">
-                  Имя сети
-                </div>
-                <div class="col-md-9">
-                  <p><input type="text"  placeholder="Wi-FI"></p>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-3">
-                  Пользователь
-                </div>
-                <div class="col-md-9">
-                  <p><input type="password" pattern="^[a-zA-Z]+$" placeholder="Wi-Fi ПАРОЛЬ"></p>
-                </div>
-              </div>
+				
+				
+				
+				
+				<div class="container">
+					<!-- фОРМА Конфигураций-->
+					<form class="form-horizontal" id="formConf">
+					
+						<div class="form-group">
+							<label class="control-label col-sm-4" >Имя сети:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" data-validation="strEN">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label col-sm-4" >Пароль:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" data-validation="strENnull">
+							</div>
+						</div>
+						
+						<div class="col-sm-10">
+							<input type="submit" class="btn btn-danger" value="Сохранить">
+							
+						</div>
+					</form>	
+				</div>
+			  
+			  
+			  
               <hr class="hr-tt">
               <BR>
                 <h5 class="title-tt">Точка доступа:</h5>
-              <div class="row">
-                <div class="col-md-3">
-                  Имя сети
-                </div>
-                <div class="col-md-9">
-                  <p><input type="text"  placeholder="Wi-FI"></p>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-3">
-                  Пользователь
-                </div>
-                <div class="col-md-9">
-                  <p><input type="password" pattern="^[a-zA-Z]+$" placeholder="Wi-Fi ПАРОЛЬ"></p>
-                </div>
-              </div>
+				
+				
+				
+				
+				
+              <div class="container">
+					<!-- фОРМА Конфигураций-->
+					<form class="form-horizontal" id="formConf">
+					
+						<div class="form-group">
+							<label class="control-label col-sm-4" >Имя сети:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" data-validation="strEN">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label col-sm-4" >Пароль:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" data-validation="strENnull">
+							</div>
+						</div>
+						
+						<div class="col-sm-10">
+							<input type="submit" class="btn btn-danger" value="Сохранить">
+							
+						</div>
+					</form>	
+				</div>
+			  
               <hr class="hr-tt">
               <BR>
                 <h5 class="title-tt">Настройка сети:</h5>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="row">
-                    <div class="col-md-3">
-                      Ip
-                    </div>
-                    <div class="col-md-9">
-                      <p><input class="num-3" type="number" pattern="[0-9]{1,3}\" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="row">
-                    <div class="col-md-3">
-                      Ip роутера
-                    </div>
-                    <div class="col-md-9">
-                      <p><input class="num-3" type="number" pattern="[0-9]{1,3}\" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr class="hr-ss">
-              <div class="row">
-                    <div class="col-md-3">
-                      Маска подсети
-                    </div>
-                    <div class="col-md-9">
-                      <p><input class="num-3" type="number" pattern="[0-9]{1,3}\" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"></p>
-                    </div>
-              </div>
-              <hr class="hr-ss">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="row">
-                    <div class="col-md-3">
-                      Dns 1
-                    </div>
-                    <div class="col-md-9">
-                      <p><input class="num-3" type="number" pattern="[0-9]{1,3}\" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="row">
-                    <div class="col-md-3">
-                      Dns 2
-                    </div>
-                    <div class="col-md-9">
-                      <p><input class="num-3" type="number" pattern="[0-9]{1,3}\" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"> . <input class="num-3" type="number" pattern="[0-9]{1,3}" placeholder="100"></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr class="hr-tt">
-
-              <div class="row">
-                <div class="col-md-6">
-                  <button type="button" class="btn btn-info">Сохранить</button>
-                </div>
-                <div class="col-md-6">
-                  <button type="button" class="btn btn-info"><label for="popupCheckboxOne2" class="popup-closer">Закрыть</label></button>
-                </div>
-              </div>
+				
+				<div class="container">
+					<div class="form-group">
+						<label class="control-label col-sm-4" >Статический IP</label>
+						<div id="ipStatic" class="col-sm-10"></div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4" >IP Роутера</label>
+						<div id="ipRouter" class="col-sm-10"></div>
+					</div>
+					<hr class="hr-ss">
+					<div class="form-group">
+						<label class="control-label col-sm-4" >Маска подсети</label>
+						<div id="ipMask" class="col-sm-10"></div>
+					</div>
+					<hr class="hr-ss">
+					<div class="form-group">
+						<label class="control-label col-sm-4" >DNS 1</label>
+						<div id="ipDns1" class="col-sm-10"></div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4" >DNS 2</label>
+						<div id="ipDns2" class="col-sm-10"></div>
+					</div>
+					<div class="col-sm-10">
+						<input type="submit" class="btn btn-danger" value="Сохранить">
+						<hr class="hr-ss">
+						<label class="btn btn-primary mb-0" for="popupCheckboxOne2">Закрыть</label>
+					
+					</div>
+				</div>
             </div>
           </div>
         </div>
@@ -207,53 +210,52 @@ Version: 2.0.1  -->
                             <div class="popup-content">
                               <h5 class="title-tt">Настройка прошивки</h5>
                               <BR>
+							  
+							  <div class="container">
                                 <h5 class="title-tv">Версия прошивки <b class="Version">1.2.6</b></h5>
 
                               <hr class="hr-tt">
-                              <div class="row">
-                                <div class="col-md-3">
-                                  Путь к прошивки
-                                </div>
-                                <div class="col-md-6">
-                                  <p><input class="urls" type="url" placeholder="http//site.my/ver13.22.zip"></p>
-                                </div>
-                              </div>
+							  
+							  
+                            <div class="form-group">
+								<label class="control-label col-sm-4" >URL</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" data-validation="server">
+								</div>
+							
+							<div class="col-sm-10">
+								<h5 class="title-tt">Проверить обновление в сети?<b class="Version"></b></h5>
+							</div>
+							<div class="col-sm-12">
+								<input type="submit" class="btn btn-primary" value="Проверить обновление">
+								<input type="submit" class="btn btn-danger" value="Установить обновления">
+							</div>
+							</div>	
+								
+								
+								
                               <hr class="hr-ss">
-                              <div class="row">
-                                <div class="col-md-6">
-                                  <button type="button" class="btn btn-info">Проверить обновления</button>
-                                </div>
-                                <div class="col-md-6">
-                                  <button type="button" class="btn btn-info">Обновить прошивку</button>
-                                </div>
-                              </div>
+                              
                               <hr class="hr-ss">
-                              <div class="row">
-                                <div class="col-md-4">
-                                  <button type="button" class="btn btn-info">Проверить обновления</button>
-                                </div>
-                                <div class="col-md-4">
-                                  <input class="int" type="file"/>
-                                </div>
-                                <div class="col-md-4">
-                                  <button type="button" class="btn btn-warning">ОБНОВИТЬ ПРОШИВКУ</button>
-                                </div>
-                              </div>
-
-                              <hr class="hr-ss">
-
-                              <hr class="hr-tt">
-                              <div class="row">
-                                <div class="col-md-6">
-
-                                </div>
-                                <div class="col-md-6">
-                                  <button type="button" class="btn btn-info"><label for="popupCheckboxOne3" class="popup-closer">Закрыть</label></button>
-                                </div>
-                              </div>
+							  
+							<div class="col-sm-10">
+								<h5 class="title-tt">Обновить через файл?<b class="Version"></b></h5>
+							</div>
+                              <BR>
+							<div class="col-md-10">
+                                <input class="int" type="file"/>
                             </div>
+								<BR>
+                            <div class="col-sm-12">
+								<input type="submit" class="btn btn-danger" value="Установить обновления">
+								<hr class="hr-tt">
+								<label class="btn btn-primary mb-0" for="popupCheckboxOne3">Закрыть</label>
+							</div>
+							  
+                              
                           </div>
                         </div>
+						</div>
 <!-- ____________________________________Конфигурация ______________________________________ -->
                 <div class="popup-wrapper">
                   <input type="checkbox" class="popup-checkbox" id="popupCheckboxOne4">
@@ -261,52 +263,41 @@ Version: 2.0.1  -->
                     <div class="popup-content">
                       <h5 class="title-tt">Конфигурация</h5>
                       <BR>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="row">
-                              <div class="col-md-5">
-                                Тип модуля
-                              </div>
-                              <div class="col-md-6">
-                                <p><input type="text" pattern="" placeholder=""></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="row">
-                              <div class="col-md-5">
-                                Имя модуля
-                              </div>
-                              <div class="col-md-6">
-                                <p><input type="text" pattern="" placeholder=""></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="row">
-                              <div class="col-md-5">
-                                Идентификатор
-                              </div>
-                              <div class="col-md-6">
-                                <p><input type="text" pattern="" placeholder=""></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      <hr class="hr-tt">
-
-                      <div class="row">
-                        <div class="col-md-6">
-                          <button type="button" class="btn btn-info">Сохранить</button>
-                        </div>
-                        <div class="col-md-6">
-                          <button type="button" class="btn btn-info"><label for="popupCheckboxOne4" class="popup-closer">Закрыть</label></button>
-                        </div>
-                      </div>
+                        <div class="container">
+			
+							<!-- фОРМА Конфигураций-->
+							<form class="form-horizontal" id="formConf">
+							
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Тип модуля</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" data-validation="strEN">
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Имя модуля</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" data-validation="strRU">
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Идентификатор</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" data-validation="strEN">
+									</div>
+								</div>
+								
+								<div class="col-sm-10">
+									<label class="btn btn-primary mb-0" for="popupCheckboxOne4">Закрыть</label>
+									<input type="submit" class="btn btn-danger" value="Сохранить">
+									
+								</div>
+							</form>
+							
+							
+						</div>
                     </div>
                   </div>
                 </div>

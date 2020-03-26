@@ -2,23 +2,19 @@
 File Name: Firmware_TT
 Plugin URI: http://shipilovfamily.com/ada-team
 Description: Файл создан для того чтоб модефецировать прошивку под Датчик давления.
-Author: Shipilov Anaioliy
+Author: Shipilov Anaioliy and Timkov Daniil
 Author URI: http://shipilovfamily.com/
 Version: 2.0.1
 -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Значения Датчика</title>
-    <link rel="stylesheet" href="css/main.css">
 
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" >
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-grid.css" >
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" >
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-reboot.css" >
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/main.css">
 
   </head>
   <body>
@@ -30,21 +26,27 @@ Version: 2.0.1
         </div>
         <div class="col-md-2">
           <div class="icon-home-page infom-home-page">
-            <img src="css/fontawesome/satellite.png" width="55">
+            <img src="images/homeoff.png" id="homeoff" width="55">
+			<img src="images/homeconnection.png" id="homeconnection" width="55">
+			<img src="images/homeon.png" id="homeon" width="55">
           </div>
-          <p class="infom-home-page">192.168.1.100</p>
+          <p class="infom-home-page" id="home"></p>
         </div>
         <div class="col-md-2">
           <div class="icon-home-page infom-home-page">
-            <img src="css/fontawesome/wifi.png" width="55">
+            <img src="images/wifioff.png" id="wifioff" width="55">
+			<img src="images/wificonnection.png" id="wificonnection" width="55">
+			<img src="images/wifion.png" id="wifion" width="55">
           </div>
-          <p class="infom-home-page">192.168.1.1</p>
+          <p class="infom-home-page" id="wifi"></p>
         </div>
         <div class="col-md-2">
           <div class="icon-home-page infom-home-page">
-            <img src="css/fontawesome/laptop.png" width="55">
+            <img src="images/mqttoff.png" id="mqttoff" width="55">
+			<img src="images/mqttconnection.png" id="mqttconnection" width="55">
+			<img src="images/mqtton.png" id="mqtton" width="55">
           </div>
-          <p class="infom-home-page">192.168.1.100</p>
+          <p class="infom-home-page" id="mqtt"></p>
         </div>
         <div class="col-md-3">
         </div>
@@ -54,29 +56,29 @@ Version: 2.0.1
           <div class="col-md-3">
             <h5 class="title-tt">Температура</h5>
             <div class="temp-align">
-              <img src="css/fontawesome/temperature.png" width="45">
-                <b class="temp_color">24</b><b class="inot-tt">°С</b>
+              <img src="images/temperature.png" width="45">
+                <b class="temp_color" id="temperature"></b><b class="inot-tt">°С</b>
             </div>
           </div>
           <div class="col-md-3">
             <h5 class="title-tt">Атмосферное давление</h5>
             <div class="temp-align">
-              <img src="css/fontawesome/skull.png" width="45">
-                <b class="temp_color">101 325</b><b class="inot-tt">Pa</b>
+              <img src="images/skull.png" width="45">
+                <b class="temp_color" id="pressure"></b><b class="inot-tt">Pa</b>
             </div>
           </div>
           <div class="col-md-3">
             <h5 class="title-tt">Влажность</h5>
             <div class="temp-align">
-              <img src="css/fontawesome/humidity.png" width="45">
-              <b class="temp_color">17,3</b><b class="inot-tt"> %</b>
+              <img src="images/humidity.png" width="45">
+              <b class="temp_color" id="humidity"></b><b class="inot-tt"> %</b>
             </div>
           </div>
           <div class="col-md-3">
             <h5 class="title-tt">Метры над уровнем моры</h5>
             <div class="temp-align">
-              <img src="css/fontawesome/water-rise.png" width="45">
-              <b class="temp_color">603</b><b class="inot-tt"> m</b>
+              <img src="images/water-rise.png" width="45">
+              <b class="temp_color" id="altitude"></b><b class="inot-tt"> m</b>
             </div>
           </div>
         </div>
@@ -88,4 +90,4 @@ Version: 2.0.1
     <div class="botom-tt">
     </div>
   </body>
-  </html>
+</html>

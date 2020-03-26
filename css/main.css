@@ -9,6 +9,9 @@ Version: 2.0.1 */
 body{
   background-color: #21242B!important;
 }
+.clear {
+	clear: both;
+}
 div{
   color: #fff;
 }
@@ -159,22 +162,4 @@ button.btn.btn-warning {
 }
 img {
     margin: 0px 0 10px 0;
-    text-align: center;
-}
-img.name-tt {
-    width: 450px;
-    text-align: center;
-}
-h1.title-404 {
-    font-size: 30px;
-}
-b.b-404 {
-    font-size: 20px;
-    color: #008064;
-    text-align: center;
-}
-.all-404{
-    text-align: center;
-    padding: 45px;
-
 }
